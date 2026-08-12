@@ -1,11 +1,10 @@
 {
   "name": "prime-file-to-link-bot",
   "version": "1.0.0",
-  "description": "Python bot runner",
-  "type": "module",
+  "description": "Dummy runner to satisfy AI Studio preview",
   "scripts": {
-    "start": "python3 bot.py",
-    "build": "echo 'Build step skipped'"
+    "start": "node dev_server.js",
+    "build": "echo 'No build step'"
   },
   "dependencies": {}
 }
