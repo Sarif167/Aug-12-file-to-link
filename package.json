@@ -1,0 +1,11 @@
+{
+  "name": "prime-file-to-link-bot",
+  "version": "1.0.0",
+  "description": "Python bot runner",
+  "type": "module",
+  "scripts": {
+    "start": "python3 bot.py",
+    "build": "echo 'Build step skipped'"
+  },
+  "dependencies": {}
+}
