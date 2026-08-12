@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta property="og:image" content="https://i.ibb.co/M8S0Zzj/live-streaming.png" itemprop="thumbnailUrl">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>%s</title>
+    <link rel="stylesheet" type='text/css' href="https://adarsh-goel.github.io/resources/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Delius">
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css">
+
+    <style>
+        /* ভিডিও সাইজ ছোট করার জন্য */
+        .auto-video video {
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        /* নতুন বাটনের জন্য */
+        .new-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 14px;
+            text-align: center;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+        
+        .new-btn:hover {
+            background-color: #45a049;
+        }
+
+        /* বাটনের স্টাইল */
+        .cybr-btn {
+            background-color: #ff4b2b; /* বাটনের ব্যাকগ্রাউন্ড রঙ */
+            color: white; /* টেক্সটের রঙ */
+            border: 2px solid #ff4b2b; /* বর্ডার স্টাইল */
+            padding: 10px 20px; /* বাটনের আকার */
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-radius: 5px;
+        }
+
+        .cybr-btn:hover {
+            background-color: #ff3a1a; /* হোভার করলে রঙ পরিবর্তন */
+            border-color: #ff3a1a;
+            color: #000;
+        }
+
+        .cybr-btn:active {
+            background-color: #d63a1a; /* ক্লিক করলে রঙ পরিবর্তন */
+            border-color: #d63a1a;
+            color: white;
+        }
+    </style>
+</head>
+
+<body class='cyber'>
+    <header>
+        <div class="toogle"></div>
+        <div id="file-name" class="cyber">
+            <marquee direction="left">%s</marquee>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- ভিডিও প্লেয়ার -->
+        <div class="auto-video">
+            <a href="https://t.me/Prime_Botz" target="_blank">
+                <video class="player" autoplay muted loop>
+                    <source src="https://envs.sh/fZO.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </a>
+        </div>
+
+        <!-- ডাউনলোড বাটন -->
+        <a href="%s">
+            <button class="cybr-btn">
+                ডাউনলোড
+                <span aria-hidden>_</span>
+                <span aria-hidden class="cybr-btn__glitch">_404 এরর</span>
+                <span aria-hidden class="cybr-btn__tag">_%s</span>
+            </button>
+        </a>
+    </div>
+
+    <script src="https://cdn.plyr.io/3.7.8/plyr.js"></script>
+    <script>
+        const controls = [
+            'play-large',
+            'rewind',
+            'play',
+            'fast-forward',
+            'progress',
+            'current-time',
+            'duration',
+            'mute',
+            'volume',
+            'captions',
+            'settings',
+            'pip',
+            'airplay',
+            'download',
+            'fullscreen'
+        ];
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            const player = Plyr.setup('.player', { controls });
+        });
+
+        const body = document.querySelector('body');
+        const title = document.querySelector('#file-name');
+        const footer = document.querySelector('footer');
+        const toogle = document.querySelector('.toogle');
+
+        toogle.onclick = () => {
+            body.classList.toggle('dark')
+            footer?.classList.toggle('dark')
+            title.classList.toggle('dark')
+        }
+    </script>
+</body>
+
+</html>
