@@ -12,7 +12,7 @@ SESSION = environ.get('SESSION', 'PrimeBotz')
 API_ID = int(environ.get('API_ID', '10458298'))
 API_HASH = environ.get('API_HASH', 'cc22b4a72ff510077ea7f4f5fc115779')
 BOT_TOKEN = environ.get('BOT_TOKEN', "")
-BOT_USERNAME = environ.get("BOT_USERNAME", 'File_To_Link_Prime_Bot') # without @ 
+BOT_USERNAME = environ.get("BOT_USERNAME", 'movieLover1_Bot') # without @ 
 
 # Admins, Channels & Users
 BIN_CHANNEL = int(environ.get("BIN_CHANNEL", '-1003184409377')) # admin your channel in stream 
