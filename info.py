@@ -25,7 +25,7 @@ PICS = (environ.get('PICS', 'https://kappa.lol/y0mXA1'))
 
 # channel link information
 CHANNEL = environ.get('CHANNEL', 'https://t.me/MovieSearchAutoGroup')
-SUPPORT = environ.get('SUPPORT', 'https://t.me/MovieSearchAutoGroup')
+SUPPORT = environ.get('SUPPORT', 'https://t.me/Movie_Requst_YT')
 
 #Dont Remove My Credit @AV_BOTz_UPDATE 
 #This Repo Is By @BOT_OWNER26 
