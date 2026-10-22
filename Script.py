@@ -52,8 +52,8 @@ Cʜᴀɴɴᴇʟ Uꜱᴀɢᴇ:
 🔞 ᴀᴅᴜʟᴛ ᴄᴏɴᴛᴇɴᴛ sᴛʀɪᴄᴛʟʏ ᴘʀᴏʜɪʙɪᴛᴇᴅ.
 
 📮 Hᴇʟᴘ & Sᴜᴘᴘᴏʀᴛ:
-• Uᴘᴅᴀᴛᴇꜱ: @MovieSearchAutoGroup
-• Sᴜᴘᴘᴏʀᴛ: @MovieSearchAutoGroup
+• Uᴘᴅᴀᴛᴇꜱ: @Prime_Movie_YT_Group
+• Sᴜᴘᴘᴏʀᴛ: @Spy_Addmin
 
  <u><i>ʀᴇᴘᴏʀᴛ ʙᴜɢs ᴛᴏ  <a href='https://t.me/botmaster55'>ᴅᴇᴠᴇʟᴏᴘᴇʀ</a></u></i></b>"""
 
@@ -68,8 +68,8 @@ Nᴀᴍᴇ - {}"""
     ABOUT_TXT = """<b>╔════❰ {} ❱═══════❍
 ║╭━━━━━━━━━━━━━━━━━━➣
 ║┣⪼🤖ᴍʏ ɴᴀᴍᴇ : {}
-║┣⪼👦ᴅᴇᴠᴇʟᴏᴘᴇʀ : <a href='https://t.me/Prime_Movie_Request_bot'>ᴅᴇᴠᴇʟᴏᴘᴇʀ</a>
-║┣⪼❣️ᴜᴘᴅᴀᴛᴇ : <a href=https://t.me/MovieSearchAutoGroup>ʙᴏᴛᴢ</a>
+║┣⪼👦ᴅᴇᴠᴇʟᴏᴘᴇʀ : <a href='https://t.me/Spy_Addmin'>ᴅᴇᴠᴇʟᴏᴘᴇʀ</a>
+║┣⪼❣️ᴜᴘᴅᴀᴛᴇ : <a href=https://t.me/Prime_Movie_YT_Group>ʙᴏᴛᴢ</a>
 ║┣⪼⏲️ʙᴏᴛ ᴜᴘᴛɪᴍᴇ :- {}
 ║┣⪼📡Hᴏsᴛᴇᴅ ᴏɴ : ᴀᴅᴠᴀɴᴄᴇ sᴇʀᴠᴇʀ
 ║┣⪼🗣️ʟᴀɴɢᴜᴀɢᴇ : ᴘʏᴛʜᴏɴ 
