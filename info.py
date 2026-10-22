@@ -24,8 +24,8 @@ OWNER_USERNAME = environ.get("OWNER_USERNAME", 'botmaster55') # without @
 PICS = (environ.get('PICS', 'https://kappa.lol/y0mXA1'))
 
 # channel link information
-CHANNEL = environ.get('CHANNEL', 'https://t.me/MovieSearchAutoGroup')
-SUPPORT = environ.get('SUPPORT', 'https://t.me/Movie_Requst_YT')
+CHANNEL = environ.get('CHANNEL', 'https://t.me/Prime_Movie_YT_Group')
+SUPPORT = environ.get('SUPPORT', 'https://t.me/Botmaster55')
 
 #Dont Remove My Credit @AV_BOTz_UPDATE 
 #This Repo Is By @BOT_OWNER26 
@@ -42,7 +42,7 @@ DATABASE_NAME = environ.get('DATABASE_NAME', "Cluster0")
 
 # fsub  information
 AUTH_PICS = environ.get('AUTH_PICS', 'https://kappa.lol/y0mXA1')              
-AUTH_CHANNEL = int(environ.get("AUTH_CHANNEL", "-1003589639644"))
+AUTH_CHANNEL = int(environ.get("AUTH_CHANNEL", "-1002024922548"))
 FSUB = environ.get("FSUB", True)
 
 # port information
