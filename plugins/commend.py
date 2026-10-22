@@ -24,7 +24,7 @@ async def start(client, message):
         buttons = [[
             InlineKeyboardButton('➕ 𝗔𝗗𝗗 𝗠𝗘 𝗧𝗢 𝗬𝗢𝗨𝗥 𝗖𝗛𝗔𝗡𝗡𝗘𝗟 ➕', url='http://t.me/movieLover1_Bot?startchannel=true')
         ],[
-            InlineKeyboardButton('✨ ᴍᴏᴠɪᴇꜱ ᴄʜᴀɴɴᴇʟ ⚡', url='https://t.me/MovieSearchAutoGroup'),
+            InlineKeyboardButton('✨ ᴍᴏᴠɪᴇꜱ ᴄʜᴀɴɴᴇʟ ⚡', url='https://t.me/Prime_Movie_YT_Group'),
             InlineKeyboardButton('💬 ꜱᴜᴘᴘᴏʀᴛ ɢʀᴏᴜᴘ 💬', url=SUPPORT)
         ],[
             InlineKeyboardButton('📢 ᴜᴘᴅᴀᴛᴇꜱ ᴄʜᴀɴɴᴇʟ 📢', url=CHANNEL)
@@ -32,7 +32,7 @@ async def start(client, message):
             InlineKeyboardButton('•💁‍♂️ ʜᴇʟᴘ •', callback_data='help'),
             InlineKeyboardButton('🤗 ᴀʙᴏᴜᴛ •', callback_data='about')
         ],[
-            InlineKeyboardButton('✧ 💫 𝗖𝗥𝗘𝗔𝗧𝗢𝗥 💫 ☆', url='https://t.me/Prime_Movie_Request_bot')
+            InlineKeyboardButton('✧ 💫 𝗖𝗥𝗘𝗔𝗧𝗢𝗥 💫 ☆', url='https://t.me/Spy_Addmin')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
 	    
@@ -56,7 +56,7 @@ async def start(client, message):
             btn = [[
                 InlineKeyboardButton('➕ 𝗔𝗗𝗗 𝗠𝗘 𝗧𝗢 𝗬𝗢𝗨𝗥 𝗖𝗛𝗔𝗡𝗡𝗘𝗟 ➕', url='http://t.me/movieLover1_Bot?startchannel=true')
             ],[  
-                InlineKeyboardButton('✨ ᴍᴏᴠɪᴇꜱ ᴄʜᴀɴɴᴇʟ ⚡', url='https://t.me/MovieSearchAutoGroup'),
+                InlineKeyboardButton('✨ ᴍᴏᴠɪᴇꜱ ᴄʜᴀɴɴᴇʟ ⚡', url='https://t.me/Prime_Movie_YT_Group'),
                 InlineKeyboardButton('💬 ꜱᴜᴘᴘᴏʀᴛ ɢʀᴏᴜᴘ 💬', url=SUPPORT)
             ],[
                 InlineKeyboardButton('📢 ᴜᴘᴅᴀᴛᴇꜱ ᴄʜᴀɴɴᴇʟ 📢', url=CHANNEL)
@@ -64,7 +64,7 @@ async def start(client, message):
                 InlineKeyboardButton('•💁‍♂️ ʜᴇʟᴘ •', callback_data='help'),
                 InlineKeyboardButton('🤗 ᴀʙᴏᴜᴛ •', callback_data='about')
             ],[
-                InlineKeyboardButton('✧ 💫 𝗖𝗥𝗘𝗔𝗧𝗢𝗥 💫 ☆', url='https://t.me/Prime_Movie_Request_bot')
+                InlineKeyboardButton('✧ 💫 𝗖𝗥𝗘𝗔𝗧𝗢𝗥 💫 ☆', url='https://t.me/Spy_Addmin')
             ]]
             await message.reply_photo(
                 photo=(PICS),
@@ -86,7 +86,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('• ʜᴏᴍᴇ •', callback_data='start'),
 	    InlineKeyboardButton('• ᴄʟᴏsᴇ •', callback_data='close_data')
 	],[
-	    InlineKeyboardButton('☢️ ʙᴏᴛ ᴏᴡɴᴇʀ ☢️', url=f"https://t.me/Prime_Movie_Request_bot")
+	    InlineKeyboardButton('☢️ ʙᴏᴛ ᴏᴡɴᴇʀ ☢️', url=f"https://t.me/Spy_Addmin")
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         me2 = (await client.get_me()).mention
@@ -100,7 +100,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         buttons = [[
             InlineKeyboardButton('➕ 𝗔𝗗𝗗 𝗠𝗘 𝗧𝗢 𝗬𝗢𝗨𝗥 𝗖𝗛𝗔𝗡𝗡𝗘𝗟 ➕', url='http://t.me/movieLover1_Bot?startchannel=true')
         ],[  
-            InlineKeyboardButton('✨ ᴍᴏᴠɪᴇꜱ ᴄʜᴀɴɴᴇʟ ⚡', url='https://t.me/MovieSearchAutoGroup'),
+            InlineKeyboardButton('✨ ᴍᴏᴠɪᴇꜱ ᴄʜᴀɴɴᴇʟ ⚡', url='https://t.me/Prime_Movie_YT_Group'),
             InlineKeyboardButton('💬 ꜱᴜᴘᴘᴏʀᴛ ɢʀᴏᴜᴘ 💬', url=SUPPORT)
         ],[
             InlineKeyboardButton('📢 ᴜᴘᴅᴀᴛᴇꜱ ᴄʜᴀɴɴᴇʟ 📢', url=CHANNEL)
@@ -108,7 +108,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('•💁‍♂️ ʜᴇʟᴘ •', callback_data='help'),
             InlineKeyboardButton('🤗 ᴀʙᴏᴜᴛ •', callback_data='about')
         ],[
-            InlineKeyboardButton('✧ 💫 𝗖𝗥𝗘𝗔𝗧𝗢𝗥 💫 ☆', url='https://t.me/Prime_Movie_Request_bot')
+            InlineKeyboardButton('✧ 💫 𝗖𝗥𝗘𝗔𝗧𝗢𝗥 💫 ☆', url='https://t.me/Spy_Addmin')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(
@@ -176,7 +176,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         user_id = int(user_id.replace(' ' , ''))
         if len(str(user_id)) == 10:
             try:
-                unban_text = "<b>ʜᴜʀʀᴀʏ..ʏᴏᴜ ᴀʀᴇ ᴜɴʙᴀɴɴᴇᴅ ʙʏ [ᴀᴠ ᴄʜᴀᴛ ᴏᴡɴᴇʀ](https://telegram.me/AV_OWNER_BOT)</b>"
+                unban_text = "<b>ʜᴜʀʀᴀʏ..ʏᴏᴜ ᴀʀᴇ ᴜɴʙᴀɴɴᴇᴅ ʙʏ [ᴀᴠ ᴄʜᴀᴛ ᴏᴡɴᴇʀ](https://telegram.me/Spy_Addmin)</b>"
                 await client.send_message(user_id , unban_text)
                 await query.message.edit(f"<b>Uɴʙᴀɴɴᴇᴅ Aʟᴇʀᴛ sᴇɴᴛ ᴛᴏ <code>{user_id}</code>\nᴀʟᴇʀᴛ ᴛᴇxᴛ : {unban_text}</b>")
             except Exception as e:
