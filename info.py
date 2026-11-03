@@ -42,7 +42,7 @@ DATABASE_NAME = environ.get('DATABASE_NAME', "Cluster0")
 
 # fsub  information
 AUTH_PICS = environ.get('AUTH_PICS', 'https://kappa.lol/y0mXA1')              
-AUTH_CHANNEL = int(environ.get("AUTH_CHANNEL", "-1002024922548"))
+AUTH_CHANNEL = int(environ.get("AUTH_CHANNEL", "-1002455587141"))
 FSUB = environ.get("FSUB", True)
 
 # port information
