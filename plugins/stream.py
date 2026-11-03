@@ -22,8 +22,9 @@ async def private_receive_handler(c: Client, m: Message):
             chat_id=BIN_CHANNEL,
             caption=f"**File Name:** {file_id.file_name}\n\n**Requested By:** {m.from_user.mention}")
         
-        stream = f"{URL}watch/{str(msg.id)}?hash={get_hash(msg)}"
-        download = f"{URL}{str(msg.id)}?hash={get_hash(msg)}"
+        secure_hash = get_hash(msg)
+        stream = f"{URL}w/{secure_hash}{msg.id}"
+        download = f"{URL}d/{secure_hash}{msg.id}"
         file_name = file_id.file_name.replace("_", " ").replace(".mp4", "").replace(".mkv", "").replace(".", " ")
         size=get_size(file_id.file_size)
         
@@ -83,8 +84,9 @@ async def channel_receive_handler(bot, broadcast):
         return
     try:  # This is the outer try block
         msg = await broadcast.forward(chat_id=BIN_CHANNEL)
-        stream = f"{URL}watch/{str(msg.id)}?hash={get_hash(msg)}"
-        download = f"{URL}{str(msg.id)}?hash={get_hash(msg)}"
+        secure_hash = get_hash(msg)
+        stream = f"{URL}w/{secure_hash}{msg.id}"
+        download = f"{URL}d/{secure_hash}{msg.id}"
 
         await msg.reply_text(
             text=f"**Channel Name:** `{broadcast.chat.title}`\n**CHANNEL ID:** `{broadcast.chat.id}`\n**Rᴇǫᴜᴇsᴛ ᴜʀʟ:** {stream}",
