@@ -174,6 +174,36 @@ class ByteStreamer:
 #This Repo Is By @BOT_OWNER26 
 # For Any Kind Of Error Ask Us In Support Group @AV_SUPPORT_GROUP
     
+    async def _get_file_with_retry(self, client: Client, file_id: FileId,
+                                   location, offset: int, chunk_size: int):
+        """Fetch one Telegram chunk, rebuilding a broken media session if needed."""
+        last_error = None
+        for attempt in range(3):
+            try:
+                media_session = await self.generate_media_session(client, file_id)
+                return await media_session.send(
+                    raw.functions.upload.GetFile(
+                        location=location, offset=offset, limit=chunk_size
+                    )
+                )
+            except (OSError, ConnectionError, asyncio.TimeoutError) as exc:
+                last_error = exc
+                logging.warning(
+                    "Telegram media connection lost (attempt %s/3, DC %s): %s",
+                    attempt + 1, file_id.dc_id, exc
+                )
+                # Discard the broken session so the next attempt creates a fresh one.
+                old_session = client.media_sessions.pop(file_id.dc_id, None)
+                if old_session is not None:
+                    try:
+                        await old_session.stop()
+                    except Exception:
+                        logging.debug("Error while stopping broken media session",
+                                      exc_info=True)
+                if attempt < 2:
+                    await asyncio.sleep(1 + attempt)
+        raise last_error
+
     async def yield_file(
         self,
         file_id: FileId,
@@ -183,58 +213,51 @@ class ByteStreamer:
         last_part_cut: int,
         part_count: int,
         chunk_size: int,
-    ) -> Union[str, None]:
-        """
-        Custom generator that yields the bytes of the media file.
-        Modded from <https://github.com/eyaadh/megadlbot_oss/blob/master/mega/telegram/utils/custom_download.py#L20>
-        Thanks to Eyaadh <https://github.com/eyaadh>
-        """
+    ):
+        """Stream Telegram file chunks, retrying transient media-session failures."""
         client = self.client
-        work_loads[index] += 1
-        logging.debug(f"Starting to yielding file with client {index}.")
-        media_session = await self.generate_media_session(client, file_id)
-
+        work_loads[index] = work_loads.get(index, 0) + 1
         current_part = 1
-        location = await self.get_location(file_id)
 
         try:
-            r = await media_session.send(
-                raw.functions.upload.GetFile(
-                    location=location, offset=offset, limit=chunk_size
-                ),
-            )
-            if isinstance(r, raw.types.upload.File):
-                while True:
-                    chunk = r.bytes
-                    if not chunk:
-                        break
-                    elif part_count == 1:
-                        yield chunk[first_part_cut:last_part_cut]
-                    elif current_part == 1:
-                        yield chunk[first_part_cut:]
-                    elif current_part == part_count:
-                        yield chunk[:last_part_cut]
-                    else:
-                        yield chunk
+            logging.debug("Starting file stream with client %s", index)
+            location = await self.get_location(file_id)
 
-                    current_part += 1
-                    offset += chunk_size
+            while current_part <= part_count:
+                r = await self._get_file_with_retry(
+                    client, file_id, location, offset, chunk_size
+                )
+                if not isinstance(r, raw.types.upload.File):
+                    raise OSError("Telegram returned an unexpected file response")
 
-                    if current_part > part_count:
-                        break
-
-                    r = await media_session.send(
-                        raw.functions.upload.GetFile(
-                            location=location, offset=offset, limit=chunk_size
-                        ),
+                chunk = r.bytes
+                if not chunk:
+                    raise OSError(
+                        f"Telegram returned an empty chunk at offset {offset}"
                     )
-        except (TimeoutError, AttributeError):
-            pass
-        finally:
-            logging.debug("Finished yielding file with {current_part} parts.")
-            work_loads[index] -= 1
 
-    
+                if part_count == 1:
+                    yield chunk[first_part_cut:last_part_cut]
+                elif current_part == 1:
+                    yield chunk[first_part_cut:]
+                elif current_part == part_count:
+                    yield chunk[:last_part_cut]
+                else:
+                    yield chunk
+
+                current_part += 1
+                offset += chunk_size
+
+        except asyncio.CancelledError:
+            # Normal when the browser/client cancels a download.
+            raise
+        except Exception:
+            logging.exception("File streaming failed for Telegram message")
+            raise
+        finally:
+            logging.debug("Finished streaming file after %s parts", current_part - 1)
+            work_loads[index] = max(0, work_loads.get(index, 1) - 1)
+
     async def clean_cache(self) -> None:
         """
         function to clean the cache to reduce memory usage
