@@ -33,6 +33,43 @@ async def root_route_handler(_):
         }
     )
 
+@routes.get(r"/w/{path:[a-zA-Z0-9_-]{7,}}", allow_head=True)
+async def short_watch_handler(request: web.Request):
+    """Compact watch URL: /w/{6-character-file-hash}{message_id}."""
+    try:
+        path = request.match_info["path"]
+        match = re.fullmatch(r"([a-zA-Z0-9_-]{6})(\d+)", path)
+        if not match:
+            raise web.HTTPNotFound(text="Invalid stream link")
+        secure_hash, message_id = match.groups()
+        return web.Response(
+            text=await render_page(int(message_id), secure_hash),
+            content_type="text/html",
+        )
+    except InvalidHash as e:
+        raise web.HTTPForbidden(text=e.message)
+    except FIleNotFound as e:
+        raise web.HTTPNotFound(text=e.message)
+
+
+@routes.get(r"/d/{path:[a-zA-Z0-9_-]{7,}}", allow_head=True)
+async def short_download_handler(request: web.Request):
+    """Compact download URL: /d/{6-character-file-hash}{message_id}."""
+    try:
+        path = request.match_info["path"]
+        match = re.fullmatch(r"([a-zA-Z0-9_-]{6})(\d+)", path)
+        if not match:
+            raise web.HTTPNotFound(text="Invalid download link")
+        secure_hash, message_id = match.groups()
+        return await media_streamer(request, int(message_id), secure_hash)
+    except InvalidHash as e:
+        raise web.HTTPForbidden(text=e.message)
+    except FIleNotFound as e:
+        raise web.HTTPNotFound(text=e.message)
+    except (AttributeError, BadStatusLine, ConnectionResetError):
+        raise web.HTTPBadRequest(text="Connection interrupted")
+
+
 @routes.get(r"/watch/{path:\S+}", allow_head=True)
 async def stream_handler(request: web.Request):
     try:
